@@ -18,11 +18,23 @@ class CartPage extends StatelessWidget {
           itemBuilder: (context, index) {
             final cartItem = cart[index];
             return ListTile(
+              leading: CircleAvatar(
+                radius: 30,
+                backgroundImage: AssetImage(cartItem["imageUrl"] as String),
+              ),
               title: Text(
                 cartItem["title"].toString(),
+                style: Theme.of(context).textTheme.bodySmall,
               ),
               subtitle: Text(
                 "Size:  ${cartItem["sizes"]}",
+              ),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ),
               ),
             );
           }),
