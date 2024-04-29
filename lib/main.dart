@@ -20,8 +20,15 @@ class MyApp extends StatelessWidget {
           primary: const Color.fromRGBO(254, 206, 1, 1),
         ),
         inputDecorationTheme: const InputDecorationTheme(
-            hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-            prefixIconColor: Color.fromRGBO(119, 119, 119, 1)),
+          hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          prefixIconColor: Color.fromRGBO(119, 119, 119, 1),
+        ),
+        textTheme: const TextTheme(
+            titleMedium: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+            bodySmall: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
       ),
       home: const HomePage(),
     );
