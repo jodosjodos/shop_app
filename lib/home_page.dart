@@ -74,7 +74,8 @@ class _HomePageState extends State<HomePage> {
                           ? Theme.of(context).colorScheme.primary
                           : const Color.fromRGBO(245, 247, 249, 1),
                       side: const BorderSide(
-                          color: Color.fromRGBO(245, 247, 249, 1)),
+                        color: Color.fromRGBO(245, 247, 249, 1),
+                      ),
                       label: Text(filter),
                       labelStyle: const TextStyle(
                         fontSize: 16,
