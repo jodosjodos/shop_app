@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoes_collection/global_variables.dart';
 import 'package:shoes_collection/home_page.dart';
-import 'package:shoes_collection/product_details_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,10 +45,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: ProductDetailsPage(
-        product: products[0],
-      ),
-      // home: const HomePage(),
+      home: const HomePage(),
     );
   }
 }

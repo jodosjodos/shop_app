@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shoes_collection/global_variables.dart';
 
 class ProductDetailsPage extends StatefulWidget {
   const ProductDetailsPage({
