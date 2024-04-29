@@ -99,12 +99,12 @@ class _HomePageState extends State<HomePage> {
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              ProductDetailsPage(product: product),
-                        ));
-                    // Navigator.of(context).push(Router(routerDelegate: RouterDelegate("/")) as Route<Object?>);
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ProductDetailsPage(product: product),
+                      ),
+                    );
                   },
                   child: ProductCard(
                     title: product["title"] as String,
