@@ -33,19 +33,16 @@ class _HomePageState extends State<HomePage> {
         body: SafeArea(
       child: Column(
         children: [
-          const Row(
+           Row(
             children: [
               Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: Text(
                   "Shoes \n Collection",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 35,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge
                 ),
               ),
-              Expanded(
+              const Expanded(
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: "Search",
