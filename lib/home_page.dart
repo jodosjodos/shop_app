@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shoes_collection/global_variables.dart';
 import 'package:shoes_collection/product_card.dart';
+import 'package:shoes_collection/product_details_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -33,14 +34,12 @@ class _HomePageState extends State<HomePage> {
         body: SafeArea(
       child: Column(
         children: [
-           Row(
+          Row(
             children: [
               Padding(
                 padding: const EdgeInsets.all(20),
-                child: Text(
-                  "Shoes \n Collection",
-                  style: Theme.of(context).textTheme.titleLarge
-                ),
+                child: Text("Shoes \n Collection",
+                    style: Theme.of(context).textTheme.titleLarge),
               ),
               const Expanded(
                 child: TextField(
@@ -97,13 +96,24 @@ class _HomePageState extends State<HomePage> {
               itemCount: products.length,
               itemBuilder: (context, index) {
                 final product = products[index];
-                return ProductCard(
-                  title: product["title"] as String,
-                  price: product["price"] as double,
-                  image: product["imageUrl"] as String,
-                  backgroundColor: index.isEven
-                      ? const Color.fromRGBO(216, 240, 253, 1)
-                      : const Color.fromRGBO(245, 247, 249, 1),
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ProductDetailsPage(product: product),
+                        ));
+                    // Navigator.of(context).push(Router(routerDelegate: RouterDelegate("/")) as Route<Object?>);
+                  },
+                  child: ProductCard(
+                    title: product["title"] as String,
+                    price: product["price"] as double,
+                    image: product["imageUrl"] as String,
+                    backgroundColor: index.isEven
+                        ? const Color.fromRGBO(216, 240, 253, 1)
+                        : const Color.fromRGBO(245, 247, 249, 1),
+                  ),
                 );
               },
             ),
