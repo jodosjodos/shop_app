@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shoes_collection/global_data.dart';
+import 'package:shoes_collection/global_variables.dart';
+import 'package:shoes_collection/product_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -93,7 +94,13 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ),
-          // ListView.builder(itemCount: products.length,itemBuilder: (context,index){})
+          ListView.builder(
+            itemCount: products.length,
+            itemBuilder: (context, index) {
+              final product = products[index];
+              return const ProductCard();
+            },
+          )
         ],
       ),
     ));
