@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shoes_collection/cart_provider.dart';
-import 'package:shoes_collection/global_variables.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
+  void onTap(BuildContext context, Map<String, dynamic> product) {
+    Provider.of<CartProvider>(
+      context,
+      listen: false,
+    ).removeProduct(product);
+  }
+
   @override
   Widget build(BuildContext context) {
-    print(Provider.of<CartProvider>(context).cart);
+    List<Map<String, dynamic>> carts = Provider.of<CartProvider>(context).cart;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -17,9 +23,9 @@ class CartPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: ListView.builder(
-          itemCount: cart.length,
+          itemCount: carts.length,
           itemBuilder: (context, index) {
-            final cartItem = cart[index];
+            final Map<String, dynamic> cartItem = carts[index];
             return ListTile(
               leading: CircleAvatar(
                 radius: 30,
@@ -33,7 +39,7 @@ class CartPage extends StatelessWidget {
                 "Size:  ${cartItem["sizes"]}",
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () => onTap(context, cartItem),
                 icon: const Icon(
                   Icons.delete,
                   color: Colors.red,
