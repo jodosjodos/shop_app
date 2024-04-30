@@ -11,7 +11,7 @@ class ProductList extends StatefulWidget {
 }
 
 class _ProductListState extends State<ProductList> {
-  final List<String> filters = const ["All", "Nike", "Adidas", "Bata"];
+  final List<String> filters = const ["All", "Nike", "Adidas", "Puma","Other"];
   List<Map<String, dynamic>> pros = [];
 
   late String selectedFilter;
