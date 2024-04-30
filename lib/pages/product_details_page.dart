@@ -46,14 +46,17 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Details"),
+        title: Text(
+          "Details",
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
         centerTitle: true,
       ),
       body: Column(
         children: [
           Text(
             widget.product["title"] as String,
-            style: Theme.of(context).textTheme.titleLarge,
+            style: Theme.of(context).textTheme.titleMedium,
           ),
           const Spacer(),
           Padding(
