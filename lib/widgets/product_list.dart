@@ -11,7 +11,7 @@ class ProductList extends StatefulWidget {
 }
 
 class _ProductListState extends State<ProductList> {
-  final List<String> filters = const ["All", "Nike", "Adidas", "Puma","Other"];
+  final List<String> filters = const ["All", "Nike", "Adidas", "Puma", "Other"];
   List<Map<String, dynamic>> pros = [];
 
   late String selectedFilter;
@@ -50,8 +50,10 @@ class _ProductListState extends State<ProductList> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(20),
-                child: Text("Shoes \n Collection",
-                    style: Theme.of(context).textTheme.titleLarge),
+                child: Text(
+                  "Shoes \n Collection",
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
               ),
               const Expanded(
                 child: TextField(
