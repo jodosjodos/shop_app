@@ -17,36 +17,47 @@ class CartPage extends StatelessWidget {
     List<Map<String, dynamic>> carts = Provider.of<CartProvider>(context).cart;
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           "Cart",
+          style: Theme.of(context).textTheme.titleLarge,
         ),
         centerTitle: true,
       ),
-      body: ListView.builder(
-          itemCount: carts.length,
-          itemBuilder: (context, index) {
-            final Map<String, dynamic> cartItem = carts[index];
-            return ListTile(
-              leading: CircleAvatar(
-                radius: 30,
-                backgroundImage: AssetImage(cartItem["imageUrl"] as String),
+      body: carts.isEmpty
+          ? Center(
+              child: Text(
+                "No product is added to cart yet",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(color: Colors.red),
               ),
-              title: Text(
-                cartItem["title"].toString(),
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-              subtitle: Text(
-                "Size:  ${cartItem["sizes"]}",
-              ),
-              trailing: IconButton(
-                onPressed: () => onTap(context, cartItem),
-                icon: const Icon(
-                  Icons.delete,
-                  color: Colors.red,
-                ),
-              ),
-            );
-          }),
+            )
+          : ListView.builder(
+              itemCount: carts.length,
+              itemBuilder: (context, index) {
+                final Map<String, dynamic> cartItem = carts[index];
+                return ListTile(
+                  leading: CircleAvatar(
+                    radius: 30,
+                    backgroundImage: AssetImage(cartItem["imageUrl"] as String),
+                  ),
+                  title: Text(
+                    cartItem["title"].toString(),
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  subtitle: Text(
+                    "Size:  ${cartItem["sizes"]}",
+                  ),
+                  trailing: IconButton(
+                    onPressed: () => onTap(context, cartItem),
+                    icon: const Icon(
+                      Icons.delete,
+                      color: Colors.red,
+                    ),
+                  ),
+                );
+              }),
     );
   }
 }
