@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget BuildCartIconWithBadge(int itemCount) {
+Widget buildCartIconWithBadge(int itemCount) {
   return Stack(
     alignment: Alignment.center,
     children: [
@@ -13,7 +13,7 @@ Widget BuildCartIconWithBadge(int itemCount) {
           child: Container(
             padding: const EdgeInsets.all(2),
             decoration: const BoxDecoration(
-              color: Colors.red,
+              color: Colors.blue,
               shape: BoxShape.circle,
             ),
             constraints: const BoxConstraints(

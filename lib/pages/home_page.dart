@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             label: "Cart",
-            icon: BuildCartIconWithBadge(cartItemCount),
+            icon: buildCartIconWithBadge(cartItemCount),
           )
         ],
       ),
