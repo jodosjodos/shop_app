@@ -29,7 +29,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
         },
       );
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text("Product have been  added to cart successfully"),
+        content: Text("Product has been  added to cart successfully"),
       ));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
