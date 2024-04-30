@@ -12,11 +12,25 @@ class ProductList extends StatefulWidget {
 
 class _ProductListState extends State<ProductList> {
   final List<String> filters = const ["All", "Nike", "Adidas", "Bata"];
+  List<Map<String, dynamic>> pros = [];
+
   late String selectedFilter;
   @override
   void initState() {
     super.initState();
     selectedFilter = filters[0];
+    pros = products;
+  }
+
+  void applyFilter() {
+    if (selectedFilter != "All") {
+      pros = products
+          .where((element) => element["company"] == selectedFilter)
+          .toList();
+    } else {
+      pros = products;
+    }
+    setState(() {});
   }
 
   @override
@@ -65,6 +79,7 @@ class _ProductListState extends State<ProductList> {
                     onTap: () {
                       setState(() {
                         selectedFilter = filter;
+                        applyFilter();
                       });
                     },
                     child: Chip(
@@ -94,7 +109,9 @@ class _ProductListState extends State<ProductList> {
             if (constraints.maxWidth > 1080) {
               return GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, childAspectRatio: 1.5,),
+                  crossAxisCount: 2,
+                  childAspectRatio: 1.5,
+                ),
                 itemBuilder: (context, index) {
                   final product = products[index];
                   return GestureDetector(
@@ -120,9 +137,9 @@ class _ProductListState extends State<ProductList> {
               );
             }
             return ListView.builder(
-              itemCount: products.length,
+              itemCount: pros.length,
               itemBuilder: (context, index) {
-                final product = products[index];
+                final product = pros[index];
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(
