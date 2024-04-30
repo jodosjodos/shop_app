@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shoes_collection/cart_provider.dart';
 
 class ProductDetailsPage extends StatefulWidget {
   const ProductDetailsPage({
     super.key,
     required this.product,
   });
-  final Map<String, Object> product;
+  final Map<String, dynamic> product;
 
   @override
   State<ProductDetailsPage> createState() => _ProductDetailsPageState();
@@ -13,6 +15,11 @@ class ProductDetailsPage extends StatefulWidget {
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
   late int selectedSize = 0;
+
+  void onTap() {
+    Provider.of<CartProvider>(context, listen: false)
+        .addProduct(widget.product);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +92,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed:onTap,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       minimumSize: const Size(
