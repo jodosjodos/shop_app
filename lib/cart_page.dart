@@ -10,6 +10,12 @@ class CartPage extends StatelessWidget {
       context,
       listen: false,
     ).removeProduct(product);
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        backgroundColor: Colors.blue,
+        content: Text("product have been removed successfully"),
+      ),
+    );
   }
 
   @override
