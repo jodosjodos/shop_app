@@ -17,8 +17,24 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
   late int selectedSize = 0;
 
   void onTap() {
-    Provider.of<CartProvider>(context, listen: false)
-        .addProduct(widget.product);
+    if (selectedSize != 0) {
+      Provider.of<CartProvider>(context, listen: false).addProduct(
+        {
+          'id': widget.product["id"],
+          'title': widget.product["title"],
+          'price': widget.product["price"],
+          'imageUrl': widget.product["imageUrl"],
+          'company': widget.product["company"],
+          'sizes': selectedSize,
+        },
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Please select a size"),
+        ),
+      );
+    }
   }
 
   @override
@@ -92,7 +108,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: ElevatedButton.icon(
-                    onPressed:onTap,
+                    onPressed: onTap,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       minimumSize: const Size(
