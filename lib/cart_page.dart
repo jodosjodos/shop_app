@@ -6,10 +6,11 @@ class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
   void onTap(BuildContext context, Map<String, dynamic> product) {
-    Provider.of<CartProvider>(
-      context,
-      listen: false,
-    ).removeProduct(product);
+    // Provider.of<CartProvider>(
+    //   context,
+    //   listen: false,
+    // ).removeProduct(product);
+    context.read<CartProvider>().removeProduct(product);
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         backgroundColor: Colors.blue,
@@ -20,7 +21,8 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> carts = Provider.of<CartProvider>(context).cart;
+    // List<Map<String, dynamic>> carts = Provider.of<CartProvider>(context).cart;
+    List<Map<String, dynamic>> carts = context.watch<CartProvider>().cart;
     return Scaffold(
       appBar: AppBar(
         title: Text(

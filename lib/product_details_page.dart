@@ -29,12 +29,14 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
         },
       );
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        backgroundColor: Colors.blue,
         content: Text("Product has been  added to cart successfully"),
       ));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text("Please select a size"),
+        SnackBar(
+          backgroundColor: Colors.red[400],
+          content: const Text("Please select a size"),
         ),
       );
     }
