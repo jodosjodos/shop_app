@@ -21,7 +21,7 @@ class _ProductListState extends State<ProductList> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final size = MediaQuery.sizeOf(context);
     const border = OutlineInputBorder(
       borderSide: BorderSide(
         color: Color.fromRGBO(225, 225, 225, 1),
@@ -96,7 +96,7 @@ class _ProductListState extends State<ProductList> {
                 ? GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2),
+                            crossAxisCount: 2, childAspectRatio: 2),
                     itemBuilder: (context, index) {
                       final product = products[index];
                       return GestureDetector(
