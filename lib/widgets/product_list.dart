@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shoes_collection/widgets/global_variables.dart';
+import 'package:shoes_collection/global/global_variables.dart';
 import 'package:shoes_collection/widgets/product_card.dart';
 import 'package:shoes_collection/pages/product_details_page.dart';
 
