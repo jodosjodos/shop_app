@@ -60,6 +60,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
             padding: const EdgeInsets.all(16),
             child: Image.asset(
               widget.product["imageUrl"] as String,
+              height: 250,
             ),
           ),
           const Spacer(
@@ -116,8 +117,8 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     onPressed: onTap,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Theme.of(context).colorScheme.primary,
-                      minimumSize: const Size(
-                        double.infinity,
+                      fixedSize: const Size(
+                        350,
                         50,
                       ),
                     ),
